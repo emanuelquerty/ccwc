@@ -1,6 +1,6 @@
 # ccwc
 
-A simplified version of one of the most famous, valuabe Unix command line tool `wc` written in Go/Golang with executables for windows, osx and linux.
+A simplified version of one of the most valuabe Unix command line tools `wc` written in Go/Golang with executables for windows, osx and linux.
 
 `ccwc` just like the original `wc` is a command line tool that allows you to count the number of lines, words, bytes, and characters in the file specified by the `File` parameter.
 
