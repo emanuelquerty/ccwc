@@ -15,20 +15,14 @@ func main() {
 	flag.StringVar(&flagvar, "w", "", "Counts the number of words in the file specified by the flag")
 	flag.StringVar(&flagvar, "m", "", "Counts the number of characters in the file specified by the flag")
 
+	flag.Usage = displayHelpInfo
 	flag.Parse()
 
 	if flagvar == "" {
 		flagvar = flag.Arg(0)
 		if flagvar == "" {
 			fmt.Print("No path to a file was specified.\n\n")
-			fmt.Println("Please, enter a file location in the following format:")
-			fmt.Print("./ccwc [optional flags] [filepath]\n\n")
-			fmt.Println("Available optional flags:")
-			fmt.Println("-c : Counts the number of bytes in the file")
-			fmt.Println("-l : Counts the number of lines in the file")
-			fmt.Println("-w : Counts the number of words in the file")
-			fmt.Println("-m : Counts the number of characters in the file")
-			fmt.Print("\nIf no optional flags is entered, it prints the file information for all flags\n")
+			flag.Usage()
 			return
 		}
 	}
@@ -88,4 +82,19 @@ func findWordCount(fileBytes []byte) int {
 
 func findCharacterCount(fileBytes []byte) int {
 	return len(bytes.Runes(fileBytes))
+}
+
+func displayHelpInfo() {
+	fmt.Println("Usage:")
+	fmt.Println("ccwc [OPTION] [FILE]")
+	fmt.Println("Print newline, word, character and byte counts for the specified FILE.")
+	fmt.Print("A word is a non-zero-length sequence of characters delimited by white space.\n\n")
+	fmt.Println("The options below may be used to select which counts are printed.")
+	fmt.Println("-c               print the byte count")
+	fmt.Println("-m               print the character count")
+	fmt.Println("-w               print the word count")
+	fmt.Println("-l               print the line count")
+	fmt.Println("--help           display this help and exit")
+	fmt.Print("\nIf no optional flags is entered, it prints the file information for all flags except the help flag\n")
+	fmt.Println("Full documentation <https://github.com/emanuelquerty/ccwc>")
 }
