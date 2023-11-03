@@ -27,6 +27,7 @@ If `OPTION` is not specified, it prints the line, word, and byte count in this s
 |    -m       | print the character count  |
 |    -w       | print the word count       |
 |    -l       | print the newline count    |
+|   --help    | display help info and exit |
 
 ### Example usage
 
