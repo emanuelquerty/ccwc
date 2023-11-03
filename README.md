@@ -34,6 +34,8 @@ If `OPTION` is not specified, it prints the line, word, and byte count in this s
 
 The above command prints the number of bytes in `test.txt`
 
+`Note: More features will be included as they are ready. Stay tuned!`
+
 ## License
 
 Copyright (c) 2023 [Emanuel Inacio](https://github.com/emanuelquerty)
