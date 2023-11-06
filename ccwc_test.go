@@ -7,10 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var fileBytes1, _ = os.ReadFile("test.txt")
-var fileBytes2, _ = os.ReadFile("test2.txt")
-var fileBytes3, _ = os.ReadFile("test3.txt")
-var fileBytes4, _ = os.ReadFile("test4.txt")
+var fileBytes1, _ = os.ReadFile("testfiles/test.txt")
+var fileBytes2, _ = os.ReadFile("testfiles/test2.txt")
+var fileBytes3, _ = os.ReadFile("testfiles/test3.txt")
+var fileBytes4, _ = os.ReadFile("testfiles/test4.txt")
 
 func TestFindByteCount(t *testing.T) {
 	actual1 := findByteCount(fileBytes1)
