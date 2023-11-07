@@ -37,19 +37,19 @@ func main() {
 	switch flagName {
 	case "c":
 		byteCount = findByteCount(fileBytes)
-		fmt.Printf(" %d %s", byteCount, flagvar)
+		fmt.Printf(" %d %s\n", byteCount, flagvar)
 	case "l":
 		lineCount = findLineCount(fileBytes)
-		fmt.Printf(" %d %s", lineCount, flagvar)
+		fmt.Printf(" %d %s\n", lineCount, flagvar)
 	case "w":
 		wordCount = findWordCount(fileBytes)
-		fmt.Printf(" %d %s", wordCount, flagvar)
+		fmt.Printf(" %d %s\n", wordCount, flagvar)
 	case "m":
 		charCount = findCharacterCount(fileBytes)
-		fmt.Printf(" %d %s", charCount, flagvar)
+		fmt.Printf(" %d %s\n", charCount, flagvar)
 	default:
 		byteCount, lineCount, wordCount = findAll(fileBytes)
-		fmt.Printf(" %d %d %d %s", lineCount, wordCount, byteCount, flagvar)
+		fmt.Printf(" %d %d %d %s\n", lineCount, wordCount, byteCount, flagvar)
 	}
 }
 
