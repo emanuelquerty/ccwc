@@ -8,7 +8,7 @@ A simplified version of one of the most valuabe Unix command line tools `wc` wri
 
 Find the corresponding executable according to your operating system platform here:
 
-https://github.com/emanuelquerty/ccwc/releases/tag/v0.0.1
+https://github.com/emanuelquerty/ccwc/releases/tag/v0.0.3
 
 ## Usage
 
