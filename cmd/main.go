@@ -1,11 +1,12 @@
 package main
 
 import (
-	"bytes"
 	"flag"
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/emanuelquerty/ccwc"
 )
 
 func main() {
@@ -36,16 +37,16 @@ func main() {
 	var byteCount, lineCount, wordCount, charCount int
 	switch flagName {
 	case "c":
-		byteCount = findByteCount(fileBytes)
+		byteCount = ccwc.FindByteCount(fileBytes)
 		fmt.Printf(" %d %s\n", byteCount, flagvar)
 	case "l":
-		lineCount = findLineCount(fileBytes)
+		lineCount = ccwc.FindLineCount(fileBytes)
 		fmt.Printf(" %d %s\n", lineCount, flagvar)
 	case "w":
-		wordCount = findWordCount(fileBytes)
+		wordCount = ccwc.FindWordCount(fileBytes)
 		fmt.Printf(" %d %s\n", wordCount, flagvar)
 	case "m":
-		charCount = findCharacterCount(fileBytes)
+		charCount = ccwc.FindCharacterCount(fileBytes)
 		fmt.Printf(" %d %s\n", charCount, flagvar)
 	default:
 		byteCount, lineCount, wordCount = findAll(fileBytes)
@@ -62,26 +63,10 @@ func findWhichFlag() string {
 }
 
 func findAll(fileBytes []byte) (int, int, int) {
-	byteCount := findByteCount(fileBytes)
-	lineCount := findLineCount(fileBytes)
-	wordCount := findWordCount(fileBytes)
+	byteCount := ccwc.FindByteCount(fileBytes)
+	lineCount := ccwc.FindLineCount(fileBytes)
+	wordCount := ccwc.FindWordCount(fileBytes)
 	return byteCount, lineCount, wordCount
-}
-
-func findByteCount(fileBytes []byte) int {
-	return len(fileBytes)
-}
-
-func findLineCount(fileBytes []byte) int {
-	return bytes.Count(fileBytes, []byte{'\n'})
-}
-
-func findWordCount(fileBytes []byte) int {
-	return len(bytes.Fields(fileBytes))
-}
-
-func findCharacterCount(fileBytes []byte) int {
-	return len(bytes.Runes(fileBytes))
 }
 
 func displayHelpInfo() {

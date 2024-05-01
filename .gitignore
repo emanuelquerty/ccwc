@@ -1,4 +1,6 @@
 
 dist/
-ccwc.exe
-testfiles/hugeRandom1GB.txt
+cmd/ccwc.exe
+testdata/hugeRandom1GB.txt
+test.txt
+bin/
