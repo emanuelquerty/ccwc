@@ -18,9 +18,9 @@ jobs:
       - name: Install dependencies
         run: go get .
       - name: Test with Go
-        run: go test -json > TestResults.json
-      - name: Upload Go test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: Go-results
-          path: TestResults.json
+        run: go test
+      # - name: Upload Go test results
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: Go-results
+      #     path: TestResults.json
