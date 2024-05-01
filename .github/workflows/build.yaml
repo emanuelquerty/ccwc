@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 jobs:
-  Test ccwc package:
+  Test-ccwc-package:
     runs-on: windows-latest
 
     steps:
