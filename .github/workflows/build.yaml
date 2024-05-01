@@ -6,8 +6,8 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  Test ccwc package:
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
