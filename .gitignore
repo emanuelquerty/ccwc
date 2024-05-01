@@ -2,5 +2,4 @@
 dist/
 cmd/ccwc.exe
 testdata/hugeRandom1GB.txt
-test.txt
 bin/
