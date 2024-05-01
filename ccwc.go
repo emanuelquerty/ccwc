@@ -20,13 +20,18 @@ func NewFlagSet() *flag.FlagSet{
 	return flag.NewFlagSet("ccwc", flag.ExitOnError)
 }
 
+// Returns the currently defined flagset
+func FlagSet() *flag.FlagSet {
+	return flagSet
+}
+
 // Resets the flagset
 func ResetFlagSet() {
 	flagSet = NewFlagSet()
 }
 
 // Gets the flag that has been set
-func GetFlag() (Flag, bool) {
+func TargetFlag() (Flag, bool) {
 	var hasFlags bool
 	var foundFlag Flag
 

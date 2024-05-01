@@ -12,7 +12,7 @@ import (
 
 func TestParseFlag(t *testing.T) {
 	t.Run("no flags have been set", func(t *testing.T) {
-		flag, ok := ccwc.GetFlag()
+		flag, ok := ccwc.TargetFlag()
 
 		if ok {
 			t.Errorf("expected no flags set but got %+v", flag)
@@ -48,7 +48,7 @@ func TestParseFlag(t *testing.T) {
 			t.Error(err)
 		}
 
-		actualFlag, ok := ccwc.GetFlag()
+		actualFlag, ok := ccwc.TargetFlag()
 		if !ok {
 			t.Errorf("expected one flag but got %+v", actualFlag)
 		}
@@ -73,7 +73,7 @@ func TestParseFlag(t *testing.T) {
 			t.Error(err)
 		}
 
-		actualFlag, ok := ccwc.GetFlag()
+		actualFlag, ok := ccwc.TargetFlag()
 		if !ok {
 			t.Errorf("expected one flag but got %+v", actualFlag)
 		}
@@ -95,7 +95,7 @@ func TestParseFlag(t *testing.T) {
 		_= ccwc.SetFlag(args)
 		
 		ccwc.ResetFlagSet()
-		actualFlag, ok := ccwc.GetFlag()
+		actualFlag, ok := ccwc.TargetFlag()
 		if ok {
 			t.Errorf("expected no flag but got flag %+v", actualFlag)
 		}

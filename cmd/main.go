@@ -17,8 +17,9 @@ func main() {
 	ccwc.DefineFlag("w", "outputs the number of words")
 	ccwc.DefineFlag("l", "outputs the number of lines")
 
+	ccwc.FlagSet().Usage = displayHelpInfo
 	ccwc.SetFlag(args)
-	flagValue, ok := ccwc.GetFlag()
+	flagValue, ok := ccwc.TargetFlag()
 	
 	var reader io.Reader
 	switch {
@@ -50,7 +51,7 @@ func main() {
 		fmt.Println(lineCount, wordCount, byteCount, flagValue.Value)
 		return
 	}
-	fmt.Println("  ", count, flagValue.Value)
+	fmt.Println(count, flagValue.Value)
 }
 
 func findAll(fileBytes []byte) (byteCount int, lineCount int, wordCount int) {
@@ -68,17 +69,17 @@ func openFile(filename string) io.Reader {
 	return reader
 }
 
-// func displayHelpInfo() {
-// 	fmt.Println("Usage:")
-// 	fmt.Println("ccwc [OPTION] [FILE]")
-// 	fmt.Println("Print newline, word, character and byte counts for the specified FILE.")
-// 	fmt.Print("A word is a non-zero-length sequence of characters delimited by white space.\n\n")
-// 	fmt.Println("The options below may be used to select which counts are printed.")
-// 	fmt.Println("-c               print the byte count")
-// 	fmt.Println("-m               print the character count")
-// 	fmt.Println("-w               print the word count")
-// 	fmt.Println("-l               print the line count")
-// 	fmt.Println("--help           display this help and exit")
-// 	fmt.Print("\nIf no optional flags is entered, it prints the file information for all flags except the help flag\n")
-// 	fmt.Println("Full documentation <https://github.com/emanuelquerty/ccwc>")
-// }
+func displayHelpInfo() {
+	fmt.Println("Usage:")
+	fmt.Println("ccwc [OPTION] [FILE]")
+	fmt.Println("Print newline, word, character and byte counts for the specified FILE.")
+	fmt.Print("A word is a non-zero-length sequence of characters delimited by white space.\n\n")
+	fmt.Println("The options below may be used to select which counts are printed.")
+	fmt.Println("-c               print the byte count")
+	fmt.Println("-m               print the character count")
+	fmt.Println("-w               print the word count")
+	fmt.Println("-l               print the line count")
+	fmt.Println("--help           display this help and exit")
+	fmt.Print("\nIf no optional flags is entered, it prints the file information for all flags except the help flag\n")
+	fmt.Println("Full documentation <https://github.com/emanuelquerty/ccwc>")
+}

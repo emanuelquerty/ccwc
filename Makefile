@@ -8,4 +8,7 @@ run: build
 
 test: 
 	go test ./...
+
+usage: build
+	bin/ccwc -h
 	
